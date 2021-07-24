@@ -1,13 +1,11 @@
-FROM node:lts-alpine
+FROM nginx:1.17
+
+COPY ./nginx.conf /etc/nginx/nginx.conf
 
 WORKDIR /app
 
-COPY package*.json ./
-
-RUN npm install
-
 COPY ./dist .
 
-EXPOSE 8080
+EXPOSE 8080:8080
 
-RUN npm run build
+CMD [“nginx”, “-g”, “daemon off;”]
