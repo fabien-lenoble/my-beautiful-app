@@ -1,7 +1,7 @@
 <template>
-  <div class="app">
-    hello, hyrule
-  </div>
+    <div class="app">
+        hello, hyrule
+    </div>
 </template>
 
 <script lang="ts">
