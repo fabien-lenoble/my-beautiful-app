@@ -14,5 +14,7 @@ module.exports = {
       'no-trailing-spaces': 'error',
       'vue/script-indent': ['error', 4, { baseIndent: 0 }],
       'vue/html-indent': ['error', 4, { baseIndent: 1 }],
+      '@typescript-eslint/explicit-module-boundary-types': ['off'],
+      '@typescript-eslint/ban-types': ['off', { 'types': ['Object'] }]
     }
   }
