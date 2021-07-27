@@ -10,6 +10,8 @@ services:
             - "3333:8080"
         volumes:
             - ./app:/app
+        user: ${CURRENT_UID}
+            
             
 networks:
     default:
