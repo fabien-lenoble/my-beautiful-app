@@ -42,10 +42,16 @@ export default {
     modules: [
     // https://go.nuxtjs.dev/axios
         '@nuxtjs/axios',
+        '@nuxtjs/strapi',
     ],
 
     // Axios module configuration: https://go.nuxtjs.dev/config-axios
     axios: {},
+
+    // Strapi module configuration: https://strapi.nuxtjs.org/options
+    strapi: {
+        // url: process.env.STRAPI_URL
+    },
 
     // Vuetify module configuration: https://go.nuxtjs.dev/config-vuetify
     vuetify: {

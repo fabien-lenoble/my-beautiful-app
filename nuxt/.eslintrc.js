@@ -9,7 +9,6 @@ module.exports = {
         "plugin:vue/recommended",
         // 'plugin:nuxt/typescript/recommended',
         // "@nuxt/typescript/recommended",
-        'prettier'
     ],
     plugins: [
     ],
@@ -20,5 +19,20 @@ module.exports = {
         'no-trailing-spaces': 'error',
         'vue/script-indent': ['error', 4, { baseIndent: 0 }],
         'vue/html-indent': ['error', 4, { baseIndent: 1 }],
+        'vue/max-len': ['error',  {
+            "code": 120,
+            "template": 120,
+            "tabWidth": 4,
+            "comments": 120,
+            "ignorePattern": "",
+            "ignoreComments": false,
+            "ignoreTrailingComments": false,
+            "ignoreUrls": false,
+            "ignoreStrings": false,
+            "ignoreTemplateLiterals": false,
+            "ignoreRegExpLiterals": false,
+            "ignoreHTMLAttributeValues": false,
+            "ignoreHTMLTextContents": false,
+        }]
     }
 };
