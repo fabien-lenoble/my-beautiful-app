@@ -27,17 +27,18 @@
 </template>
 
 <script lang="ts">
-import Vue from 'vue';
-export default Vue.extend({
-    methods: {
-        async click (): Promise<void> {
-            try {
-                const users = await (this as any).$strapi.$songs.find();
-                console.log(users);
-            } catch (error) {
-                console.error(error);
-            }
+import { Component, Vue } from 'nuxt-property-decorator';
+
+@Component
+export default class extends Vue {
+    async click (): Promise<void> {
+        try {
+            // eslint-disable-next-line @typescript-eslint/no-explicit-any
+            const users = await (this as any).$strapi.$songs.find();
+            console.log(users);
+        } catch (error) {
+            console.error(error);
         }
     }
-});
+}
 </script>
