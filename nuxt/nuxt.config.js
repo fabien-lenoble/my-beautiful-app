@@ -35,14 +35,14 @@ export default {
     // https://go.nuxtjs.dev/typescript
         '@nuxt/typescript-build',
         // https://go.nuxtjs.dev/vuetify
-        '@nuxtjs/vuetify',
+        '@nuxtjs/vuetify'
     ],
 
     // Modules: https://go.nuxtjs.dev/config-modules
     modules: [
     // https://go.nuxtjs.dev/axios
         '@nuxtjs/axios',
-        '@nuxtjs/strapi',
+        '@nuxtjs/strapi'
     ],
 
     // Axios module configuration: https://go.nuxtjs.dev/config-axios
@@ -50,7 +50,7 @@ export default {
 
     // Strapi module configuration: https://strapi.nuxtjs.org/options
     strapi: {
-        // url: process.env.STRAPI_URL
+        entities: ['songs']
     },
 
     // Vuetify module configuration: https://go.nuxtjs.dev/config-vuetify
@@ -78,6 +78,6 @@ export default {
 
     server: {
         port: 8080,
-        host: "0.0.0.0"
+        host: '0.0.0.0'
     }
 };

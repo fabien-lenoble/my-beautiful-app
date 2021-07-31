@@ -12,7 +12,6 @@ services:
             - .:/app
         user: ${CURRENT_UID}
         env_file:
-            - ../.env
             - .env
 
 networks:
