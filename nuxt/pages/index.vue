@@ -33,9 +33,8 @@ import { Component, Vue } from 'nuxt-property-decorator';
 export default class extends Vue {
     async click (): Promise<void> {
         try {
-            // eslint-disable-next-line @typescript-eslint/no-explicit-any
-            const users = await (this as any).$strapi.$songs.find();
-            console.log(users);
+            const songs = await this.$strapi.find('songs');
+            console.log(songs);
         } catch (error) {
             console.error(error);
         }

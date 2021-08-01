@@ -28,17 +28,24 @@
                         <v-col
                             class="align-self-end"
                         >
+                            <div
+                                v-show="showLoginError"
+                                class="pa-2 error--text"
+                            >
+                                login error
+                            </div>
                             <v-form
                                 ref="form"
                                 v-model="valid"
                                 lazy-validation
                             >
                                 <v-text-field
-                                    v-model="username"
-                                    label="Username"
+                                    v-model="identifier"
+                                    label="Identifier"
                                     required
                                     outlined
-                                    :rules="[v => !!v || 'Username is missing']"
+                                    :rules="[v => !!v || 'Identifier is missing']"
+                                    @keydown.enter="validateForm"
                                 />
                                 <v-text-field
                                     v-model="password"
@@ -50,8 +57,8 @@
                                     outlined
                                     :rules="[v => !!v || 'Password is missing']"
                                     @click:append="showPassword = !showPassword"
+                                    @keydown.enter="validateForm"
                                 />
-
                                 <v-btn
                                     :disabled="!valid"
                                     color="primary"
@@ -80,12 +87,32 @@ import { VForm } from 'types';
 export default class extends Vue {
     @Ref('form') readonly form!: VForm;
     valid = false;
-    username = '';
+    identifier = '';
     password = '';
     showPassword = false;
+    showLoginError = false;
 
-    validateForm () {
+    async validateForm () {
         this.form.validate();
+        if (this.valid) {
+            await this.login(this.identifier, this.password);
+            if (this.$strapi.user) {
+                const nextUrl = this.$route.query.nextUrl as string | undefined;
+                this.$router.push(nextUrl ? decodeURIComponent(nextUrl) : 'index');
+            } else {
+                this.form.resetValidation();
+                this.form.reset();
+            }
+        }
+    }
+
+    async login (identifier: string, password: string): Promise<void> {
+        try {
+            const token = (await this.$strapi.login({ identifier, password })).jwt;
+            this.$strapi.setToken(token);
+        } catch (error) {
+            this.showLoginError = true;
+        }
     }
 }
 </script>

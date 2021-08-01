@@ -17,19 +17,17 @@
 <script lang="ts">
 import { Component, Vue } from 'nuxt-property-decorator';
 
-class VueWithStrapi extends Vue {
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    $strapi: any;
-}
-
 @Component({
-    middleware: 'auth'
+    // middleware: 'auth'
 })
-export default class extends VueWithStrapi {
-    title = 'Neat';
-
+export default class extends Vue {
     get user () {
         return this.$strapi.user;
+    }
+
+    get title () {
+        const title = 'Neat';
+        return `${title}${this.user ? ' - ' + this.user.username : ''}`;
     }
 }
 </script>
