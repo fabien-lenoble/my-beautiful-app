@@ -17,3 +17,12 @@
         </v-col>
     </v-row>
 </template>
+
+<script lang="ts">
+import { Component, Vue } from 'nuxt-property-decorator';
+
+@Component({
+    middleware: 'auth'
+})
+export default class extends Vue {
+}

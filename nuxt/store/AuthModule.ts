@@ -1,5 +1,4 @@
-import { Module, VuexModule, Mutation } from 'vuex-module-decorators';
-import { Route } from 'vue-router';
+import { Module, VuexModule } from 'vuex-module-decorators';
 
 @Module({
     name: 'AuthModule',
@@ -7,10 +6,4 @@ import { Route } from 'vue-router';
     namespaced: true
 })
 export default class AuthModule extends VuexModule {
-    nextUrl: Route | null = null;
-
-    @Mutation
-    setNextUrl (nextUrl: Route) {
-        this.nextUrl = nextUrl;
-    }
 }

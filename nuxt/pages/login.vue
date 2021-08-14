@@ -92,13 +92,13 @@ export default class extends Vue {
     showPassword = false;
     showLoginError = false;
 
-    async validateForm () {
+    async validateForm (): Promise<void> {
         this.form.validate();
         if (this.valid) {
             await this.login(this.identifier, this.password);
             if (this.$strapi.user) {
-                const nextUrl = this.$route.query.nextUrl as string | undefined;
-                this.$router.push(nextUrl ? decodeURIComponent(nextUrl) : 'index');
+                const nextUrl = this.$route.query.nextUrl as string | null;
+                this.$router.push(nextUrl ? decodeURIComponent(nextUrl) : { name: 'index' });
             } else {
                 this.form.resetValidation();
                 this.form.reset();

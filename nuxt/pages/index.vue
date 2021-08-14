@@ -18,6 +18,18 @@
                             >
                                 click me
                             </v-btn>
+                            <v-btn
+                                color="secondary"
+                                to="inspire"
+                            >
+                                inspire
+                            </v-btn>
+                            <v-btn
+                                color="secondary"
+                                to="login"
+                            >
+                                login
+                            </v-btn>
                         </v-col>
                     </v-row>
                 </v-card-text>

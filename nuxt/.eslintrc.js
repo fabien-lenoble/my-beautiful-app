@@ -35,6 +35,7 @@ module.exports = {
             ignoreHTMLAttributeValues: false,
             ignoreHTMLTextContents: false
         }],
-        '@typescript-eslint/no-explicit-any': 2
+        '@typescript-eslint/no-explicit-any': 2,
+        '@typescript-eslint/explicit-function-return-type': ['warn']
     }
 };
