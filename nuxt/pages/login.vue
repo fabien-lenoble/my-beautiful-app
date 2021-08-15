@@ -8,7 +8,6 @@
             <v-card
                 height="450"
                 width="100%"
-                color="rgb(42, 42, 62, 0.8)"
             >
                 <v-card-text
                     class="justify-center"
@@ -82,7 +81,7 @@ import { Component, Vue, Ref } from 'nuxt-property-decorator';
 import { VForm } from 'types';
 
 @Component({
-    layout: 'login'
+    // layout: 'login'
 })
 export default class extends Vue {
     @Ref('form') readonly form!: VForm;
@@ -101,7 +100,7 @@ export default class extends Vue {
                 this.$router.push(nextUrl ? decodeURIComponent(nextUrl) : { name: 'index' });
             } else {
                 this.form.resetValidation();
-                this.form.reset();
+                this.password = '';
             }
         }
     }

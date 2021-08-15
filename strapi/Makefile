@@ -1,4 +1,4 @@
-dev:
+dev: stop
 	docker-compose run --name neat-strapi --rm --service-ports node npm run develop
 
 install:
@@ -6,3 +6,6 @@ install:
 
 exec-node:
 	docker-compose run --rm --entrypoint="/bin/sh" node
+
+stop:
+	docker-compose down

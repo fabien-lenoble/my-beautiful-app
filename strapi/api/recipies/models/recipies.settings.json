@@ -1,8 +1,8 @@
 {
   "kind": "collectionType",
-  "collectionName": "songs",
+  "collectionName": "recipies",
   "info": {
-    "name": "family",
+    "name": "recipy",
     "description": ""
   },
   "options": {
@@ -12,15 +12,8 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "name": {
+    "title": {
       "type": "string"
-    },
-    "description": {
-      "type": "string"
-    },
-    "members": {
-      "plugin": "users-permissions",
-      "collection": "user"
     }
   }
 }

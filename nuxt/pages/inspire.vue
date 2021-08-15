@@ -26,3 +26,4 @@ import { Component, Vue } from 'nuxt-property-decorator';
 })
 export default class extends Vue {
 }
+</script>

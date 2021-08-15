@@ -6,7 +6,7 @@
         <v-toolbar-title>
             <v-card
                 :to="{ name: 'index' }"
-                exact
+                color="transparent"
             >
                 <v-card-text>
                     {{ title }}
